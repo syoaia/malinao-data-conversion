@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSV to JSON Transformer</title>
+    <style>
+      :root {
+        --bg: #f4f7fb;
+        --card: #ffffff;
+        --primary: #1d4ed8;
+        --primary-dark: #1e3a8a;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --border: #dbe4f0;
+        --success: #166534;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(135deg, #eef4ff, #f8fafc);
+        color: var(--text);
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 48px auto;
+        padding: 24px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+        padding: 28px;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        color: var(--primary-dark);
+      }
+
+      .meta {
+        margin-bottom: 24px;
+        padding: 12px 16px;
+        background: #eff6ff;
+        border-left: 4px solid var(--primary);
+        border-radius: 10px;
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+
+      input[type="file"] {
+        border: 1px solid var(--border);
+        background: #f8fafc;
+        border-radius: 10px;
+        padding: 12px;
+        width: min(100%, 340px);
+      }
+
+      button {
+        border: none;
+        border-radius: 10px;
+        padding: 12px 18px;
+        background: var(--primary);
+        color: white;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+
+      button:hover {
+        background: var(--primary-dark);
+      }
+
+      button.secondary {
+        background: #e2e8f0;
+        color: var(--text);
+      }
+
+      button.secondary:hover {
+        background: #cbd5e1;
+      }
+
+      .status {
+        margin-bottom: 18px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      pre {
+        margin: 0;
+        background: #0f172a;
+        color: #e2e8f0;
+        border-radius: 12px;
+        padding: 18px;
+        white-space: pre-wrap;
+        word-break: break-word;
+        min-height: 200px;
+        overflow-x: auto;
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding: 14px;
+        }
+
+        .card {
+          padding: 18px;
+        }
+
+        .controls {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>CSV to JSON Data Mapper</h1>
+
+        <div class="meta">
+          Student: Aisha Malinao<br />
+          Schedule: IT 3206N MW 6:00-8:30<br />
+          DCISM Host: aishamalinao.dcism.org
+        </div>
+
+        <div class="controls">
+          <input id="csvFile" type="file" accept=".csv,text/csv" />
+          <button id="loadSampleBtn" class="secondary" type="button">Use Provided CSV</button>
+          <button id="convertBtn" type="button">Convert to JSON</button>
+          <button id="downloadBtn" class="secondary" type="button">Download JSON</button>
+        </div>
+
+        <div id="status" class="status">Upload a CSV file or load the provided sample data.</div>
+        <pre id="jsonOutput">{
+  "message": "No CSV loaded yet."
+}</pre>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
